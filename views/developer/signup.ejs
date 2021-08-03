@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+
+<div class="container">
+    <form action="/developersignup" method="POST">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="password">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="email">
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input type="mobile" class="form-control" id="mobile" name="mobile" placeholder="mobile">
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="location" class="form-control" id="location" name="location" placeholder="location">
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <input type="gender" class="form-control" id="gender" name="gender" placeholder="gender">
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="age" class="form-control" id="age" name="age" placeholder="age">
+        </div>
+        <div class="form-group">
+            <label for="language">Language</label>
+            <input type="language" class="form-control" id="language" name="language" placeholder="language">
+        </div>
+        <div class="form-group">
+            <label for="platform">Platform</label>
+            <input type="platform" class="form-control" id="platform" name="platform" placeholder="platform">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+</form>
+<%- include('../partials/footer') %>
