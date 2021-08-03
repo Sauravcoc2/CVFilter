@@ -11,11 +11,11 @@ const jobSchema = new Schema({
     status: String,
     recruiter: {
         type: Schema.Types.ObjectId,
-        ref: 'Recruiter'
+        ref: 'User'
     },
     appliedcandidate: [{
         type: Schema.Types.ObjectId,
-        ref: 'Developer'
+        ref: 'User'
     }]
 });
 
