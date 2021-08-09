@@ -1,0 +1,107 @@
+.box-main{
+    height: 100vh;
+    background-image: url('/img/bg1.gif');
+    background-size: cover;
+}
+
+.firstHalf{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    float: right;
+    justify-content: right;
+    margin-right: 100px;
+    margin-top: 60px;
+}
+
+.buts{
+    align-items: right;
+    justify-content: center;
+}
+
+.button{
+    float: left;
+    height: 50px;
+    width: 150px;
+    padding: 8px 20px;
+    margin: 7px 5px;
+    border: 2px solid white;
+    border-radius: 8px;
+    font-size: 16px;
+    background: none;
+    color: white;
+    cursor: pointer; 
+}
+
+.button:hover{
+    background-color: grey;
+    color: white;
+    transition: 0.5s ease;
+}
+
+.text-big{
+    font-family: monoton;
+    font-size: 40px;
+    text-align: left;
+    color: burlywood;
+}
+
+.text-small{
+    text-align: center;
+    font-family: Yellowtail;
+    font-size: 40px;
+    color: burlywood;
+}
+
+
+/*  ============================
+    about Section 
+    ============================ */
+
+
+.about{
+    height: 100vh; 
+    display: flex;
+    background-image: url('/img/bg3.gif'); 
+    width: 100%; 
+    background-size: cover;
+}
+.thumbnail{
+    max-height: 400px;
+    width: 400px;
+    margin-right: 70px;
+    opacity: 1;
+}
+
+/* ================================
+    services Section
+    ================================ */
+
+.services{
+    height:100vh ; 
+    background-image: url('/img/bg3.gif');
+    width: 100%; 
+    background-size: cover;
+}
+
+.thumbnail2{
+    max-height: 200px;
+    width: 200px;
+    margin-right: 70px;
+    opacity: 90%;
+}
+/* Navbar CSS */
+
+.nav-item{
+    float: right;
+    font-family: Arial;
+    text-decoration: none;
+    color: gold;
+    font-size: 22px;
+    text-shadow: 2px 1px grey;
+    margin-left: 20px; 
+}
+
+.nav-item:hover{
+    color: white;
+}

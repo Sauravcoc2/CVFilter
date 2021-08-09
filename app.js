@@ -57,7 +57,7 @@ app.get('/', async (req, res)=>{
 })
 
 app.get('/cvfilter', async (req, res)=>{
-    res.send("CVFilter Index");
+    res.render("index");
 })
 
 app.use('/', user);
