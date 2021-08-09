@@ -7,9 +7,7 @@ const path = require('path');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const methodOverride = require('method-override');
-const expressSanitizer = require("express-sanitizer");
 const DataBaseConnect = require("./database/connection");
-const passportLocalMongoose = require('passport-local-mongoose');
 
 /**********************************************
 APP CONFIGURATION
@@ -26,7 +24,7 @@ app.use(require('express-session')({
     secret: process.env.EXPRESS_SECRET,
     resave: false,
     saveUninitialized: true
-}))
+}));
 
 //MIDDLEWARES
 const { isLoggedIn } = require("./utils/middleware");
@@ -44,21 +42,26 @@ passport.deserializeUser(User.deserializeUser());
 
 /*************ROUTER VARIABLES*************/
 const user = require('./routes/user');
+const jobs = require('./routes/jobs');
 
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     next();
 })
 
-
 /**********************************************
 ROUTES
 **********************************************/
+app.get('/', async (req, res)=>{
+    res.redirect("/login");
+})
+
 app.get('/cvfilter', async (req, res)=>{
     res.send("CVFilter Index");
 })
 
 app.use('/', user);
+app.use('/', jobs);
 
 app.listen(3000, ()=>{
     console.log("Server Started!!");

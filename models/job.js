@@ -1,14 +1,18 @@
 const mongoose=require("mongoose");
 const Schema = mongoose.Schema;
-const passportLocalMongoose = require('passport-local-mongoose');
 
 const jobSchema = new Schema({
-    title: String,
+    jobtitle: String,
     company: String,
     language: String,
     location: String,
     ctc: Number,
     status: String,
+    lifespan: Number,
+    createddate: {
+        type: Date,
+        default: Date.now
+    },
     recruiter: {
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -19,5 +23,4 @@ const jobSchema = new Schema({
     }]
 });
 
-jobSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('Job', jobSchema);

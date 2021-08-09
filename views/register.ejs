@@ -1,7 +1,7 @@
 <%- include('./partials/header') %>
 
 <div class="container">
-    <form action="/signup" method="POST">
+    <form action="/register" method="POST">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" name="username" placeholder="username">
@@ -54,8 +54,7 @@
                 Recruiter
             </label>
           </div>
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
     </div>
-
-    <button type="submit" class="btn btn-primary btn-block">Submit</button>
 </form>
 <%- include('./partials/footer') %>

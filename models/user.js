@@ -12,19 +12,22 @@ const userSchema = new Schema({
     language: String,
     platform: String,
     company: String,
-    type: {
-        type: String,
-        required: true
+    result: String,
+    type: String,
+    result: String,
+    appliedDateForDeveloper: {
+        type: Date,
+        default: Date.now
     },
-    createdjob: [{
+    appliedJobByDeveloper: [{
         type: Schema.Types.ObjectId,
         ref: 'Job'
     }],
-    appliedjob: [{
+    jobListByRecruiter: [{
         type: Schema.Types.ObjectId,
         ref: 'Job'
     }],
-    candidate: [{
+    candidateOfRecruiter: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
     }]

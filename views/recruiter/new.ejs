@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+
+<div class="container">
+    <form action="/jobs" method="POST">
+        <div class="form-group">
+            <label for="jobtitle">Job Title</label>
+            <input type="text" class="form-control" id="jobtitle" name="jobtitle" placeholder="jobtitle">
+        </div>
+
+        <div class="form-group">
+            <label for="language">Language</label>
+            <input type="text" class="form-control" id="language" name="language" placeholder="language">
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" id="location" name="location" placeholder="location">
+        </div>
+
+        <div class="form-group">
+            <label for="ctc">CTC</label>
+            <input type="number" class="form-control" id="ctc" name="ctc" placeholder="ctc">
+        </div>
+
+        <div class="form-group">
+            <label for="lifespan">Lifespan of application</label>
+            <input type="number" class="form-control" id="lifespan" name="lifespan" placeholder="lifespan">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+<%- include('../partials/footer') %>

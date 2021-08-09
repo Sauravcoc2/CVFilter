@@ -5,7 +5,11 @@ require('dotenv').config();
 const DataBaseUrl = process.env.DATABASE_URL;
 
 const DataBaseConnect = catchAsync(async() => {
-    await mongoose.connect(DataBaseUrl, { useUnifiedTopology: true, useNewUrlParser: true });
+    await mongoose.connect(DataBaseUrl, {
+        useUnifiedTopology: true, 
+        useNewUrlParser: true, 
+        useCreateIndex: true
+    });
     console.log("DataBase Connected!!");
 });
 

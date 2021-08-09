@@ -4,20 +4,20 @@ const passport = require('passport');
 const catchAsync = require('../utils/catchAsync');
 const User = require('../models/user');
 
-router.get('/signup', (req, res) => {
-    res.render('signup');
+router.get('/register', (req, res) => {
+    res.render('register');
 });
 
-router.post('/signup', catchAsync(async (req, res, next) => {
-    console.log(req.body);
+router.post('/register', catchAsync(async (req, res, next) => {
     try {
         const { username, password, email, mobile, location, gender, age, language, platform, company, type } = req.body;
-        const user = new User({username, email, mobile, location, gender, age, language, platform, company, type})
+        const user = new User({username, email, mobile, location, gender, age, language, platform, company, type});
         const registeredUser = await User.register(user, password);
-        const newUser = await registeredUser.save();
+        await registeredUser.save();
+        console.log(registeredUser);
         res.redirect('/login');
     } catch (err) {
-        res.redirect('/signup');
+        res.redirect('/register');
     }
 }));
 
@@ -26,8 +26,11 @@ router.get('/login', (req, res) => {
 })
 
 router.post('/login', passport.authenticate('local', {failureRedirect: '/login' }), (req, res) => {
-    // id = req.user._id;
-    res.send("Logged In Successfully!!")
+    if(req.user.type == 'developer') {
+        res.render('developer/home');
+    } else {
+        res.render('recruiter/home');
+    }
 })
 
 router.get('/logout', (req, res) => {
