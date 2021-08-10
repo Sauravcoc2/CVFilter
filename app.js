@@ -43,6 +43,8 @@ passport.deserializeUser(User.deserializeUser());
 /*************ROUTER VARIABLES*************/
 const user = require('./routes/user');
 const jobs = require('./routes/jobs');
+const recruiter = require('./routes/recruiter');
+const developer = require('./routes/developer');
 
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
@@ -62,6 +64,8 @@ app.get('/cvfilter', async (req, res)=>{
 
 app.use('/', user);
 app.use('/', jobs);
+app.use('/', recruiter);
+app.use('/', developer);
 
 app.listen(3000, ()=>{
     console.log("Server Started!!");

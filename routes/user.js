@@ -3,6 +3,8 @@ const router = express.Router();
 const passport = require('passport');
 const catchAsync = require('../utils/catchAsync');
 const User = require('../models/user');
+const Job = require('../models/job');
+const { isLoggedIn } = require("../utils/middleware");
 
 router.get('/register', (req, res) => {
     res.render('register');
@@ -27,13 +29,13 @@ router.get('/login', (req, res) => {
 
 router.post('/login', passport.authenticate('local', {failureRedirect: '/login' }), (req, res) => {
     if(req.user.type == 'developer') {
-        res.render('developer/home');
+        res.redirect('/developer');
     } else {
-        res.render('recruiter/home');
+        res.redirect('/recruiter');
     }
 })
 
-router.get('/logout', (req, res) => {
+router.get('/logout', isLoggedIn, (req, res) => {
     req.logout();
     res.redirect('/cvfilter');
 })

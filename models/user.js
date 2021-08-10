@@ -19,7 +19,7 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    appliedJobByDeveloper: [{
+    appliedJobsByDeveloper: [{
         type: Schema.Types.ObjectId,
         ref: 'Job'
     }],
