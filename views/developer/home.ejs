@@ -1,3 +1,27 @@
 <%- include('../partials/header') %>
-<h1>This is Home Page for Developer</h1>
+<a href="/developer/applied">View Applied Jobs</a>
+
+<% jobs.slice().reverse().forEach(function(job) { %>
+    <div class="card" mb-3>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><%= job.jobtitle %> </h5>
+                    <p class="card-text"><%= job.company %></p>
+                    <p class="card-text"><%= job.ctc %></p>
+                    <p class="card-text">
+                        <small class="text-muted"><%= job.location%></small>
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted"><%= job.language%></small>
+                    </p>
+                    <form action="/developer/<%=job.id%>/apply" method="post">
+                        <input class="btn btn-primary" type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<% }) %>
+
 <%- include('../partials/footer') %>
