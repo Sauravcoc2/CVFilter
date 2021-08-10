@@ -55,7 +55,7 @@ app.use((req, res, next) => {
 ROUTES
 **********************************************/
 app.get('/', async (req, res)=>{
-    res.redirect("/login");
+    res.redirect("/cvfilter");
 })
 
 app.get('/cvfilter', async (req, res)=>{

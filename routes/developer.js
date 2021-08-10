@@ -10,7 +10,13 @@ router.get('/developer', isLoggedIn, async (req, res) => {
     if(req.user.type == 'recruiter')
         res.redirect('/recruiter');
     const jobs = await Job.find({});
-    res.render('developer/home', { jobs });
+    const applied = [];
+    jobs.forEach(job=>{
+        if(job.appliedcandidate.includes(req.user._id)) {
+            applied.push(job);
+        }
+    });
+    res.render('developer/home', { jobs, applied });
 });
 
 router.post('/developer/:id/apply', isLoggedIn, async (req, res) => {
@@ -23,6 +29,26 @@ router.post('/developer/:id/apply', isLoggedIn, async (req, res) => {
     await recruiter.candidateOfRecruiter.push(developer);
 
     await recruiter.save();
+    await developer.save();
+    await job.save();
+
+    res.redirect('/developer');
+});
+
+router.post('/developer/:id/remove', isLoggedIn, async (req, res) => {
+    const developer = await User.findById(req.user._id);
+    const job = await Job.findById(req.params.id);
+
+    let array = job.appliedcandidate;
+    let index = array.indexOf(req.user._id);
+    array.splice(index, 1);
+    job.appliedcandidate = array;
+
+    array = developer.appliedJobsByDeveloper;
+    index = array.indexOf(req.params.id);
+    array.splice(index, 1);
+    developer.appliedJobsByDeveloper = array;
+
     await developer.save();
     await job.save();
 

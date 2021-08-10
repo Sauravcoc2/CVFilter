@@ -30,7 +30,12 @@
         </div>
       </div>
       <div class="log">
-        <a href="/login"><button class="sm-button">Signup</button></a>
-        <a href="/login"><button class="sm-button">Login</button></a>
+        <% if(!currentUser){ %>
+          <a href="/register"><button class="sm-button">Signup</button></a>
+          <a href="/login"><button class="sm-button">Login</button></a>
+        <% } else { %>
+          <a href="/logout"><button class="sm-button">Logout</button></a>
+          <a href="#"><button class="sm-button"><%=currentUser.username%></button></a>
+        <% } %>
       </div>
     </nav>
