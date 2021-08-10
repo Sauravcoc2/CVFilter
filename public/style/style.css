@@ -1,3 +1,22 @@
+/* Header */
+.sm-button{
+    float: right;
+    height: 38px;
+    width: 80px;
+    margin: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: rgb(0, 102, 255);
+    color: white;
+    cursor: pointer; 
+    text-align: center;
+}
+
+.log{
+    margin-right: 40px;
+}
+/* Index Page */
+
 .box-main{
     height: 100vh;
     background-image: url('/img/bg1.gif');
@@ -39,20 +58,33 @@
     transition: 0.5s ease;
 }
 
-.text-big{
+.text-big-fp{
     font-family: monoton;
     font-size: 40px;
     text-align: left;
     color: burlywood;
 }
 
-.text-small{
+.text-small-fp{
     text-align: center;
     font-family: Yellowtail;
     font-size: 40px;
     color: burlywood;
 }
 
+.text-big{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+}
+
+.text-small{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: rgb(110, 141, 226);
+}
 
 /*  ============================
     about Section 
@@ -67,8 +99,8 @@
     background-size: cover;
 }
 .thumbnail{
-    max-height: 400px;
-    width: 400px;
+    max-height: 500px;
+    width: 450px;
     margin-right: 70px;
     opacity: 1;
 }
@@ -78,18 +110,22 @@
     ================================ */
 
 .services{
+    display: flex;
     height:100vh ; 
     background-image: url('/img/bg3.gif');
     width: 100%; 
     background-size: cover;
+    padding-top: 10px;
 }
 
 .thumbnail2{
-    max-height: 200px;
-    width: 200px;
+    align-items: right;
+    max-height: 300px;
+    width: 300px;
     margin-right: 70px;
     opacity: 90%;
 }
+
 /* Navbar CSS */
 
 .nav-item{
@@ -104,4 +140,26 @@
 
 .nav-item:hover{
     color: white;
+}
+
+
+/* ======================== */
+/* Register Page */
+/* ========================== */
+
+.form-container{
+    background-image: url("/img/bg3.gif");
+}
+
+.form-check-label{
+    color: white;
+}
+
+/*Login*/
+.containerlg{
+    height: 100vh;
+    width: 100%;
+    border: 2px solid green; 
+    justify-content: center;
+    align-items: center;
 }
