@@ -76,30 +76,15 @@ router.post('/jobs/:jid/reject/:uid', async(req, res)=>{
     res.redirect('/jobs/' + req.params.jid + '/interested');
 });
 
-// router.get('/jobs/selected', isLoggedIn, async(req, res)=>{
-//     try {
-//         const user = await User.findById(req.user._id);
-//         const allDevelopers = user.jobListByRecruiter;
-//         const jobs = [];
-//         for(var i = 0; i < allDevelopers.length; i++) {
-//             var job = await Job.findById(allDevelopers[i]);
-//             jobs.push(job);
-//         }
-//         res.render('recruiter/selected', {jobs});
-//     } catch (err) {
-//         res.redirect('/jobs/recruiter')
-//     }
-// });
-
-// router.get('/jobs/:id/interested', async(req, res)=>{
-//     const job = await Job.findById(req.params.id);
-//     const candidateIds = job.appliedcandidate;
-//     const candidates = [];
-//     for(var i = 0; i < candidateIds.length; i++) {
-//         var candidate = await User.findById(candidateIds[i]);
-//         candidates.push(candidate);
-//     }
-//     res.render('recruiter/interested', {candidates, job});
-// });
+router.get('/jobs/:id/selected', async(req, res)=>{
+    const job = await Job.findById(req.params.id);
+    const candidateIds = job.selectedcandidate;
+    const candidates = [];
+    for(var i = 0; i < candidateIds.length; i++) {
+        var candidate = await User.findById(candidateIds[i]);
+        candidates.push(candidate);
+    }
+    res.render('recruiter/selected', {candidates, job});
+});
 
 module.exports = router;

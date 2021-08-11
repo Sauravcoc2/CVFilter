@@ -1,14 +1,37 @@
 <%- include('../partials/header') %>
 
-    <div class="card mt-3">
-        <div class="card-header">
-            <h5 class="card-title"><strong>Selected Candidates</strong></h5>
+<div id="joblist" class="container mt-5">
+    <% candidates.slice().reverse().forEach(function(candidate) { %>
+        <div class="card mb-2" mb-3>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= candidate.username %> </h5>
+                        <p class="card-text">
+                            <small class="text-muted"><%= candidate.location%></small>
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted"><%= candidate.language%></small>
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted"><%= candidate.age%></small>
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted"><%= candidate.platform%></small>
+                        </p>
+                        <div class="d-flex justify-content-start">
+                            <form action="/jobs/<%=job.id%>/select/<%=candidate.id%>" method="post">
+                                <input class="btn btn-success" type="submit" value="Accept">
+                            </form>
+                            <form action="/jobs/<%=job.id%>/reject/<%=candidate.id%>" method="post">
+                                <input class="btn btn-danger" type="submit" value="Reject">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-            <p class="card-text">You can see your selected Candidates for your previously created jobs of your company.</p>
-            <a href="/jobs/createdjobs" class="btn btn-primary">View All</a>
-        </div>
-    </div>
-
+    <% }) %>
+</div>
 
 <%- include('../partials/footer') %>
