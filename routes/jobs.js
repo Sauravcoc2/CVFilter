@@ -28,4 +28,8 @@ router.post('/jobs', async (req, res)=>{
     }
 });
 
+router.get('/jobs/createdjobs', async(req, res)=>{
+    res.send("CREATED PAGE!!");
+});
+
 module.exports = router;

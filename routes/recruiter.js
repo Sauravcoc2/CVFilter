@@ -12,4 +12,6 @@ router.get('/recruiter', isLoggedIn, async (req, res) => {
     res.render('recruiter/home');
 })
 
+
+
 module.exports = router;
