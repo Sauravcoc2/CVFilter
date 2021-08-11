@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+
+<div id="joblist" class="container mt-5">
+    <% jobs.slice().reverse().forEach(function(job) { %>
+        <div class="card mb-2" mb-3>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= job.jobtitle %> </h5>
+                        <p class="card-text">
+                            <small class="text-muted"><%= job.location%></small>
+                        </p>
+                        <div class="d-flex justify-content-start">
+                            <form action="/jobs/<%=job.id%>/interested" method="get">
+                                <input class="btn btn-info" type="submit" value="Show Interested Candidated">
+                            </form>
+                            <form action="/jobs/<%=job.id%>/delete" method="get">
+                                <input class="btn btn-danger" type="submit" value="Delete Job">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+<%- include('../partials/footer') %>

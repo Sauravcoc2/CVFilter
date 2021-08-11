@@ -29,11 +29,12 @@ router.post('/jobs', async (req, res)=>{
 });
 
 router.get('/jobs/createdjobs', async(req, res)=>{
-    res.render('recruiter/createdjobs');
-});
+    try {
+        const user = await User.findById(req.user._id);
+    } catch (err) {
 
-router.get('/jobs/selected', async(req, res)=>{
-    res.render('recruiter/selected');
+    }
+    res.send("CREATED PAGE!!");
 });
 
 module.exports = router;
