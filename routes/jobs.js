@@ -44,20 +44,15 @@ router.get('/jobs/created', isLoggedIn, async(req, res)=>{
 });
 
 router.get('/jobs/:id/interested', async(req, res)=>{
-    try {
-        const job = await Job.findById(req.params.id);
-        const candidateIds = job.appliedcandidate;
-        const candidates = [];
-        for(var i = 0; i < candidateIds.length; i++) {
-            var candidate = await User.findById(candidateIds[i]);
-            candidates.push(candidate);
-        }
-        console.log(candidates);
-        res.render('recruiter/interested', {candidates});
-    } catch (err) {
-        res.redirect('/jobs/recruiter')
+    const job = await Job.findById(req.params.id);
+    const candidateIds = job.appliedcandidate;
+    const candidates = [];
+    for(var i = 0; i < candidateIds.length; i++) {
+        var candidate = await User.findById(candidateIds[i]);
+        candidates.push(candidate);
     }
-    res.send('recruiter/interested');
+    console.log(candidates);
+    res.render('recruiter/interested', {candidates});
 });
 
 module.exports = router;
