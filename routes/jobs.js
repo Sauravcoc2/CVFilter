@@ -28,13 +28,36 @@ router.post('/jobs', async (req, res)=>{
     }
 });
 
-router.get('/jobs/createdjobs', async(req, res)=>{
+router.get('/jobs/created', isLoggedIn, async(req, res)=>{
     try {
         const user = await User.findById(req.user._id);
+        const allDevelopers = user.jobListByRecruiter;
+        const jobs = [];
+        for(var i = 0; i < allDevelopers.length; i++) {
+            var job = await Job.findById(allDevelopers[i]);
+            jobs.push(job);
+        }
+        res.render('recruiter/created', {jobs});
     } catch (err) {
-
+        res.redirect('/jobs/recruiter')
     }
-    res.send("CREATED PAGE!!");
+});
+
+router.get('/jobs/:id/interested', async(req, res)=>{
+    try {
+        const job = await Job.findById(req.params.id);
+        const candidateIds = job.appliedcandidate;
+        const candidates = [];
+        for(var i = 0; i < candidateIds.length; i++) {
+            var candidate = await User.findById(candidateIds[i]);
+            candidates.push(candidate);
+        }
+        console.log(candidates);
+        res.render('recruiter/interested', {candidates});
+    } catch (err) {
+        res.redirect('/jobs/recruiter')
+    }
+    res.send('recruiter/interested');
 });
 
 module.exports = router;
