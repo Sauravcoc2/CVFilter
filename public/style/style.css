@@ -162,4 +162,19 @@
     border: 2px solid green; 
     justify-content: center;
     align-items: center;
+    display: flex;
 }
+
+/* Card Title Display */
+.card-title{
+    font-size: 24px;
+    font-family: arial;
+}
+
+.card-text{
+    font-size: 20px;
+    font-family: popins;
+}
+
+/* Selected */
+

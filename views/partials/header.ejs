@@ -21,14 +21,28 @@
       <div class="logo">
         <img src="/img/logo1.png" alt="logo" style="height: 50px; width: auto;">
       </div>
+
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
         <div class="navbar-nav" p-auto m-auto align-center>
           <a class="nav-item nav-link" href="/cvfilter">Home</a>
           <a class="nav-item nav-link" href="#about">About</a>
           <a class="nav-item nav-link" href="#services">Services</a>
           <a class="nav-item nav-link" href="#contact">Contact us</a>
+          
+          <div class="log">
+            <% if(!currentUser){ %>
+              <a class="nav-item nav-link" href="/developer">Developer</a>
+              <a class="nav-item nav-link" href="/recruiter">Recruiter</a>
+            <% } else { %>
+              <a class="nav-item nav-link" href="#"><%=currentUser.username%></button></a>
+            <% } %>
+          </div>
+
         </div>
+
       </div>
+
       <div class="log">
         <% if(!currentUser){ %>
           <a href="/register"><button class="sm-button">Signup</button></a>
@@ -38,4 +52,5 @@
           <a href="#"><button class="sm-button"><%=currentUser.username%></button></a>
         <% } %>
       </div>
+
     </nav>

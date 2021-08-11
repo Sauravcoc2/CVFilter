@@ -29,7 +29,11 @@ router.post('/jobs', async (req, res)=>{
 });
 
 router.get('/jobs/createdjobs', async(req, res)=>{
-    res.send("CREATED PAGE!!");
+    res.render('recruiter/createdjobs');
+});
+
+router.get('/jobs/selected', async(req, res)=>{
+    res.render('recruiter/selected');
 });
 
 module.exports = router;
