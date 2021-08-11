@@ -21,6 +21,14 @@ const jobSchema = new Schema({
     appliedcandidate: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
+    }],
+    selectedcandidate: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    rejectedcandidate: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     }]
 });
 
