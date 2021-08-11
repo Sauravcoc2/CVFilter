@@ -1,5 +1,3 @@
-console.log("Working.");
-//developer
 const developer = document.querySelector('#developer');
 developer.addEventListener('change', (event) => {
     const company = document.querySelector('#div-company');

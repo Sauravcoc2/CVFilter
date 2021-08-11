@@ -16,7 +16,6 @@ router.post('/register', catchAsync(async (req, res, next) => {
         const user = new User({username, email, mobile, location, gender, age, language, platform, company, type});
         const registeredUser = await User.register(user, password);
         await registeredUser.save();
-        console.log(registeredUser);
         res.redirect('/login');
     } catch (err) {
         res.redirect('/register');

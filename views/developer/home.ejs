@@ -49,6 +49,15 @@
                         <form action="/developer/<%=job.id%>/remove" method="post">
                             <input class="btn btn-danger" type="submit" value="Unregister">
                         </form>
+                        <form action="#">
+                            <% if(job.selectedcandidate.indexOf(currentUser.id) > -1) { %>
+                                <input class="btn btn-success" value="Selected">
+                            <% } else if (job.rejectedcandidate.indexOf(currentUser.id) > -1) { %>
+                                <input class="btn btn-danger" value="Rejected">
+                            <% } else { %>
+                                <input class="btn btn-warning" value="Pending">
+                            <% } %>
+                        </form>
                     </div>
                 </div>
             </div>

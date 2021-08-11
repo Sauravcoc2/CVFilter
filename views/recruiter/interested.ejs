@@ -2,6 +2,7 @@
 
 <div id="joblist" class="container mt-5">
     <% candidates.slice().reverse().forEach(function(candidate) { %>
+        <% if(job.selectedcandidate.indexOf(candidate.id) > -1 || job.rejectedcandidate.indexOf(candidate.id) > -1) return; %>
         <div class="card mb-2" mb-3>
             <div class="row">
                 <div class="col-md-8">
@@ -20,10 +21,10 @@
                             <small class="text-muted"><%= candidate.platform%></small>
                         </p>
                         <div class="d-flex justify-content-start">
-                            <form action="#" method="get">
+                            <form action="/jobs/<%=job.id%>/select/<%=candidate.id%>" method="post">
                                 <input class="btn btn-success" type="submit" value="Accept">
                             </form>
-                            <form action="#" method="get">
+                            <form action="/jobs/<%=job.id%>/reject/<%=candidate.id%>" method="post">
                                 <input class="btn btn-danger" type="submit" value="Reject">
                             </form>
                         </div>
