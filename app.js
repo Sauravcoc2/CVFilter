@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 const path = require('path');
 const passport = require('passport');
+const flash = require("connect-flash");
 const LocalStrategy = require('passport-local');
 const methodOverride = require('method-override');
 const DataBaseConnect = require("./database/connection");
@@ -33,6 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
@@ -48,6 +50,8 @@ const developer = require('./routes/developer');
 
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 })
 

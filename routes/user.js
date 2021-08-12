@@ -27,10 +27,17 @@ router.get('/login', (req, res) => {
 })
 
 router.post('/login', passport.authenticate('local', {failureRedirect: '/login' }), (req, res) => {
-    if(req.user.type == 'developer') {
-        res.redirect('/developer');
-    } else {
-        res.redirect('/recruiter');
+    try {
+        if(req.user.type == 'developer') {
+            req.flash("success", "Successfully logged In as Developer!!");
+            res.redirect('/developer');
+        } else {
+            req.flash("success", "Successfully logged In as Recruiter!!");
+            res.redirect('/recruiter');
+        }
+    } catch (err) {
+        req.flash("err", "Username or Password incorrect!!");
+        res.redirect('/login');
     }
 })
 
