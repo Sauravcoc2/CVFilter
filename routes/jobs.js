@@ -11,7 +11,7 @@ router.get('/jobs/new', isLoggedIn, (req, res)=>{
     res.render('recruiter/new');
 });
 
-router.post('/jobs', async (req, res)=>{
+router.post('/jobs', isLoggedIn, async (req, res)=>{
     try {
         const recruiter = req.user._id;
         const user = await User.findById(recruiter);
@@ -22,8 +22,10 @@ router.post('/jobs', async (req, res)=>{
         await newJob.save();
         await user.jobListByRecruiter.push(newJob._id);
         await user.save();
+        req.flash("success", "Job Successfully Created!!");
         res.redirect("/jobs/new")
     } catch (err) {
+        req.flash("error", "Something Went Wrong!!");
         res.send("Something went Wrong!!");
     }
 });
@@ -43,7 +45,7 @@ router.get('/jobs/created', isLoggedIn, async(req, res)=>{
     }
 });
 
-router.get('/jobs/:id/interested', async(req, res)=>{
+router.get('/jobs/:id/interested', isLoggedIn, async(req, res)=>{
     const job = await Job.findById(req.params.id);
     const candidateIds = job.appliedcandidate;
     const candidates = [];
@@ -54,7 +56,7 @@ router.get('/jobs/:id/interested', async(req, res)=>{
     res.render('recruiter/interested', {candidates, job});
 });
 
-router.post('/jobs/:jid/select/:uid', async(req, res)=>{
+router.post('/jobs/:jid/select/:uid', isLoggedIn, async(req, res)=>{
     const job = await Job.findById(req.params.jid);
     const user = await User.findById(req.params.uid);
     let array = job.selectedcandidate;
@@ -62,10 +64,11 @@ router.post('/jobs/:jid/select/:uid', async(req, res)=>{
     console.log(array);
     job.selectedcandidate = array;
     await job.save();
+    req.flash("success", "Selected!!");
     res.redirect('/jobs/' + req.params.jid + '/interested');
 });
 
-router.post('/jobs/:jid/reject/:uid', async(req, res)=>{
+router.post('/jobs/:jid/reject/:uid', isLoggedIn, async(req, res)=>{
     const job = await Job.findById(req.params.jid);
     const user = await User.findById(req.params.uid);
     let array = job.rejectedcandidate;
@@ -73,6 +76,7 @@ router.post('/jobs/:jid/reject/:uid', async(req, res)=>{
     console.log(array);
     job.rejectedcandidate = array;
     await job.save();
+    req.flash("error", "Rejected!!");
     res.redirect('/jobs/' + req.params.jid + '/interested');
 });
 

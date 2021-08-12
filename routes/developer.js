@@ -32,6 +32,7 @@ router.post('/developer/:id/apply', isLoggedIn, async (req, res) => {
     await developer.save();
     await job.save();
 
+    req.flash("success", "Successfully Applied!!");
     res.redirect('/developer');
 });
 
@@ -52,6 +53,7 @@ router.post('/developer/:id/remove', isLoggedIn, async (req, res) => {
     await developer.save();
     await job.save();
 
+    req.flash("error", "Unregistered!!");
     res.redirect('/developer');
 });
 
