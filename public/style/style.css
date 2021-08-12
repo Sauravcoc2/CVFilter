@@ -189,3 +189,25 @@
     -moz-box-shadow: -1px 1px 12px 5px rgba(219,219,219,1);
     box-shadow: -1px 1px 12px 5px rgba(219,219,219,1);
 }
+
+/* login Button Size */
+.size{
+    width: 100%;
+}
+
+/* Recruiter Home Page */
+.containerRh{
+    background: url('/img/crystal-img.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 70vh;
+}
+
+/* New Job Create */
+.new{
+    background: url('/img/bg3.gif');
+    border: 5px outset grey;
+    -webkit-box-shadow: 10px 10px 14px -4px rgba(219,219,219,1);
+    -moz-box-shadow: 10px 10px 14px -4px rgba(219,219,219,1);
+box-shadow: 10px 10px 14px -4px rgba(219,219,219,1);
+}

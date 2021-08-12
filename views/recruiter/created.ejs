@@ -6,17 +6,18 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title"><%= job.jobtitle %> </h5>
-                        <p class="card-text">
+                        <h5 class="card-title text-left"><%= job.jobtitle %> </h5>
+                        <p class="card-text text-left">
                             <small class="text-muted"><%= job.location%></small>
                         </p>
-                        <div class="d-flex justify-content-start">
+                        <div class="d-flex justify-content-between">
                             <form action="/jobs/<%=job.id%>/interested" method="get">
-                                <input class="btn btn-info" type="submit" value="Show Interested Candidated">
+                                <input class="btn btn-info" type="submit" value="Interested Candidated">
                             </form>
                             <form action="/jobs/<%=job.id%>/selected" method="get">
-                                <input class="btn btn-success" type="submit" value="Show Selected Candidated">
+                                <input class="btn btn-success" type="submit" value="Selected Candidated">
                             </form>
+
                             <form action="/jobs/<%=job.id%>/delete" method="get">
                                 <input class="btn btn-danger" type="submit" value="Delete Job">
                             </form>
