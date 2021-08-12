@@ -1,34 +1,41 @@
 <%- include('../partials/header') %>
+<div class="fullbody bg">
+    <div class="col-md-4 col-sm-4 col-xs-12"></div>
+    <div class="container new w-50 p-5">
 
-<div class="container">
-    <form action="/jobs" method="POST">
-        <div class="form-group">
-            <label for="jobtitle">Job Title</label>
-            <input type="text" class="form-control" id="jobtitle" name="jobtitle" placeholder="jobtitle">
-        </div>
+        <form action="/jobs" method="POST">
+            
+            <div class="form-group text-white h5">
+                <label class="mt-3"for="jobtitle">Job Title</label>
+                <input type="text" class="form-control mt-2" id="jobtitle" name="jobtitle" placeholder="Job title">
+            </div>
 
-        <div class="form-group">
-            <label for="language">Language</label>
-            <input type="text" class="form-control" id="language" name="language" placeholder="language">
-        </div>
+            <div class="form-group mt-3 text-white h5">
+                <label for="language">Language Required</label>
+                <input type="text" class="form-control mt-2" id="language" name="language" placeholder="Eg. C++, Java, etc.">
+            </div>
 
-        <div class="form-group">
-            <label for="location">Location</label>
-            <input type="text" class="form-control" id="location" name="location" placeholder="location">
-        </div>
+            <div class="form-group mt-3 text-white h5">
+                <label for="location">Job Location</label>
+                <input type="text" class="form-control mt-2" id="location" name="location" placeholder="Location">
+            </div>
 
-        <div class="form-group">
-            <label for="ctc">CTC</label>
-            <input type="number" class="form-control" id="ctc" name="ctc" placeholder="ctc">
-        </div>
+            <div class="form-group mt-3 text-white h5">
+                <label for="ctc">Expected Salary (CTC)</label>
+                <input type="number" class="form-control mt-2" id="ctc" name="ctc" placeholder="CTC">
+            </div>
 
-        <div class="form-group">
-            <label for="lifespan">Lifespan of application</label>
-            <input type="number" class="form-control" id="lifespan" name="lifespan" placeholder="lifespan">
-        </div>
+            <div class="form-group mt-3 text-white h5">
+                <label for="lifespan">Lifespan of application</label>
+                <input type="number" class="form-control mt-2" id="lifespan" name="lifespan" placeholder="No. of days for application to remian">
+            </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+            <button type="submit" class="btn btn-primary mt-3 mb-4">Create</button>
+
+        </form>
+
+    </div>
+
 </div>
 
 <%- include('../partials/footer') %>

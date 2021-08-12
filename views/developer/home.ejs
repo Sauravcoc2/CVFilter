@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
-<div class="container mt-5 d-flex justify-content-center">
+<div class="devMain bg">
+<div class="container d-flex justify-content-center">
     <input id="view" class="btn btn-info m-2" type="button" value="All" style="width: 150px;">
     <input id="apply" class="btn btn-success m-2" type="button" value="Applied" style="width: 150px;">
 </div>
@@ -16,10 +17,10 @@
                         <p class="card-text"><%= job.company %></p>
                         <p class="card-text"><%= job.ctc %></p>
                         <p class="card-text">
-                            <small class="text-muted"><%= job.location%></small>
+                            <small class="text-muted"><%= job.language%></small>
                         </p>
                         <p class="card-text">
-                            <small class="text-muted"><%= job.language%></small>
+                            <small class="text-muted"><%= job.location%></small>
                         </p>
                         <form action="/developer/<%=job.id%>/apply" method="post">
                             <input class="btn btn-primary" type="submit" value="Register">
@@ -37,26 +38,26 @@
         <div class="card mb-2" mb-3>
             <div class="row">
                 <div class="col-md-8">
-                    <div class="card-body">
+                    <div class="card-body mb-2 ">
                         <h5 class="card-title"><%= job.jobtitle %> </h5>
                         <p class="card-text"><%= job.company %></p>
                         <p class="card-text"><%= job.ctc %></p>
                         <p class="card-text">
-                            <small class="text-muted"><%= job.location%></small>
-                        </p>
-                        <p class="card-text">
                             <small class="text-muted"><%= job.language%></small>
                         </p>
+                        <p class="card-text">
+                            <small class="text-muted"><%= job.location%></small>
+                        </p>
                         <form action="/developer/<%=job.id%>/remove" method="post">
-                            <input class="btn btn-danger" type="submit" value="Unregister">
+                            <input class="btn btn-danger" style="float: right; margin-left: 10px; width: 150px;" type="submit" value="Unregister">
                         </form>
                         <form action="#">
                             <% if(job.selectedcandidate.indexOf(currentUser.id) > -1) { %>
-                                <input class="btn btn-success" value="Selected">
+                                <input class="btn btn-success mb-3" style="float: left; width: 150px;"  value="Selected">
                             <% } else if (job.rejectedcandidate.indexOf(currentUser.id) > -1) { %>
-                                <input class="btn btn-danger" value="Rejected">
+                                <input class="btn btn-danger mb-3" style="float: left; width: 150px;" value="Rejected">
                             <% } else { %>
-                                <input class="btn btn-warning" value="Pending">
+                                <input class="btn btn-warning mb-3" style="float: left; width: 150px;" value="Pending">
                             <% } %>
                         </form>
                     </div>
@@ -64,6 +65,7 @@
             </div>
         </div>
     <% }) %>
+</div>
 </div>
 
 <script>
