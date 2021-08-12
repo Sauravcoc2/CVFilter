@@ -30,16 +30,17 @@
           <a class="nav-item nav-link" href="/cvfilter">Home</a>
           <% if(currentUser){ %>
             <a class="nav-item nav-link" href="/<%=currentUser.type%>">Dashboard</a>
-          <% } %>
-          <a class="nav-item nav-link" href="#about">About</a>
+          <% } else { %>
+            <a class="nav-item nav-link" href="#about">About</a>
+          <% } %> 
           <a class="nav-item nav-link" href="#contact">Contact us</a>
         </div>
       </div>
 
       <div class="log">
         <% if(!currentUser){ %>
-          <a href="/register"><button class="sm-button">Signup</button></a>
-          <a href="/login"><button class="sm-button">Login</button></a>
+          <a href="/register"><button class="btn btn-outline-secondary">Signup</button></a>
+          <a href="/login"><button class="btn btn-outline-secondary">Login</button></a>
         <% } else { %>
           <a href="/logout"><button class="sm-button">Logout</button></a>
           <a href="/<%=currentUser.type%>"><button class="sm-button"><%=currentUser.username%></button></a>
