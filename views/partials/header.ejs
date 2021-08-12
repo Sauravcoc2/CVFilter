@@ -39,11 +39,12 @@
 
       <div class="log">
         <% if(!currentUser){ %>
-          <a href="/register"><button class="btn btn-outline-secondary">Signup</button></a>
-          <a href="/login"><button class="btn btn-outline-secondary">Login</button></a>
+          <a href="/register"><button class="btn btn-outline-secondary border-white text-white">Signup</button></a>
+          <a href="/login"><button class="btn btn-outline-secondary border-white text-white">Login</button></a>
         <% } else { %>
-          <a href="/logout"><button class="sm-button">Logout</button></a>
-          <a href="/<%=currentUser.type%>"><button class="sm-button"><%=currentUser.username%></button></a>
+          <a href="/<%=currentUser.type%>"><button class="btn btn-outline-secondary border-white text-white"><%=currentUser.username%></button></a>
+          <a href="/logout"><button class="btn btn-outline-secondary border-white text-white">Logout</button></a>
+          
         <% } %>
       </div>
 

@@ -73,17 +73,17 @@
 }
 
 .text-big{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: yellowtail;
     font-size: 40px;
     text-align: center;
-    color: white;
+    color: goldenrod;
 }
 
 .text-small{
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    color: rgb(110, 141, 226);
+    font-family: poppins;
+    font-size: 27px;
+    color: burlywood;
 }
 
 /*  ============================
