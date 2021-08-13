@@ -9,23 +9,21 @@
 <div id="joblist" style="display: none;" class="container mt-5">
     <% jobs.slice().reverse().forEach(function(job) { %>
         <% if(job.selectedcandidate.indexOf(currentUser.id) > -1 || job.rejectedcandidate.indexOf(currentUser.id) > -1) return; %>
-        <div class="card mb-2" mb-3>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title"><%= job.jobtitle %> </h5>
-                        <p class="card-text"><%= job.company %></p>
-                        <p class="card-text"><%= job.ctc %></p>
-                        <p class="card-text">
-                            <small class="text-muted"><%= job.language%></small>
-                        </p>
-                        <p class="card-text">
-                            <small class="text-muted"><%= job.location%></small>
-                        </p>
-                        <form action="/developer/<%=job.id%>/apply" method="post">
-                            <input class="btn btn-primary" type="submit" value="Register">
-                        </form>
-                    </div>
+        <div class="d-flex justify-content-center mb-3">
+            <div class="card" style="width: 50rem;">
+                <div class="card-body">
+                <h5 class="card-title">Recruitment Drive of <strong><%= job.company %></strong></h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">Job Profile: <%= job.jobtitle %> </li>
+                <li class="list-group-item">Expected Salary (CTC) : <%= job.ctc %> </li>
+                <li class="list-group-item">Job Location: <%= job.location %>  </li>
+                <li class="list-group-item">Language Required: <%= job.language %>  </li>
+                </ul>
+                <div class="card-body">
+                <form action="/developer/<%= job.id %>/apply" method="post">
+                    <input class="btn btn-primary" type="submit" value="Register">
+                </form>
                 </div>
             </div>
         </div>
@@ -35,32 +33,30 @@
 
 <div id="applied" class="container mt-5">
     <% applied.slice().reverse().forEach(function(job) { %>
-        <div class="card mb-2" mb-3>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card-body mb-2 ">
-                        <h5 class="card-title"><%= job.jobtitle %> </h5>
-                        <p class="card-text"><%= job.company %></p>
-                        <p class="card-text"><%= job.ctc %></p>
-                        <p class="card-text">
-                            <small class="text-muted"><%= job.language%></small>
-                        </p>
-                        <p class="card-text">
-                            <small class="text-muted"><%= job.location%></small>
-                        </p>
-                        <form action="/developer/<%=job.id%>/remove" method="post">
-                            <input class="btn btn-danger" style="float: right; margin-left: 10px; width: 150px;" type="submit" value="Unregister">
-                        </form>
-                        <form action="#">
-                            <% if(job.selectedcandidate.indexOf(currentUser.id) > -1) { %>
-                                <input class="btn btn-success mb-3" style="float: left; width: 150px;"  value="Selected">
-                            <% } else if (job.rejectedcandidate.indexOf(currentUser.id) > -1) { %>
-                                <input class="btn btn-danger mb-3" style="float: left; width: 150px;" value="Rejected">
-                            <% } else { %>
-                                <input class="btn btn-warning mb-3" style="float: left; width: 150px;" value="Pending">
-                            <% } %>
-                        </form>
-                    </div>
+        <div class="d-flex justify-content-center mb-3">
+            <div class="card" style="width: 50rem;">
+                <div class="card-body">
+                <h5 class="card-title">Recruitment Drive of <strong><%= job.company %></strong></h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">Job Profile: <%= job.jobtitle %> </li>
+                <li class="list-group-item">Expected Salary (CTC) : <%= job.ctc %> </li>
+                <li class="list-group-item">Job Location: <%= job.location %>  </li>
+                <li class="list-group-item">Language Required: <%= job.language %>  </li>
+                </ul>
+                <div class="card-body">
+                    <form action="#">
+                        <% if(job.selectedcandidate.indexOf(currentUser.id) > -1) { %>
+                            <input class="btn btn-success mb-3" style="float: left; width: 100px;"  value="Selected">
+                        <% } else if (job.rejectedcandidate.indexOf(currentUser.id) > -1) { %>
+                            <input class="btn btn-danger mb-3" style="float: left; width: 100px;" value="Rejected">
+                        <% } else { %>
+                            <input class="btn btn-warning mb-3" style="float: left; width: 100px;" value="Pending">
+                        <% } %>
+                    </form>
+                    <form action="/developer/<%=job.id%>/remove" method="post">
+                        <input class="btn btn-danger" style="float: right; margin-left: 10px; width: 100px;" type="submit" value="Unregister">
+                    </form>
                 </div>
             </div>
         </div>
@@ -83,4 +79,5 @@
     });
 </script>
 
-<%- include('../partials/footer') %>
+</body>
+</html>
