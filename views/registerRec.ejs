@@ -1,0 +1,75 @@
+<%- include('./partials/header') %>
+
+<div class="form-container">
+        <form class="reg" action="/register" method="POST" style="padding: 3rem 15rem;">
+        <br>
+            <div class="form-check d-none">
+                <input class="form-check-input row" type="radio" name="type" id="recruiter" value="recruiter" checked>
+                    <label class="form-check-label" for="recruiter">
+                        Recruiter
+                    </label>
+            <br>
+            </div>
+        
+            <div class="form-group row mt-3">
+                <label class="col-sm-2 col-form-label text-white" for="username">Username</label> 
+                <div class="col-sm-10">
+                    <input type="text" class="form-control ml-5 pl-2" id="username" name="username" placeholder="username">
+                </div>
+            </div>
+        <br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-white" for="password">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="password">
+                </div>
+            </div>
+        <br>
+        <div class="form-group row" >
+                <label class="col-sm-2 col-form-label text-white" for="gender">Gender</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="gender" name="gender" placeholder="gender">
+                </div>
+            </div>
+        <br>
+            <div class="form-group row" >
+                <label class="col-sm-2 col-form-label text-white" for="age">Age</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="age" name="age" placeholder="age">
+                </div>
+            </div>
+        <br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-white" for="email">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="email">
+                </div>
+            </div>
+        <br>
+            <div class="form-group row" >
+                <label class="col-sm-2 col-form-label text-white" for="mobile">Mobile</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="mobile">
+                </div>
+            </div>
+        <br>
+            <div class="form-group row" >
+                <label class="col-sm-2 col-form-label text-white" for="location">Location</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="location" name="location" placeholder="location">
+                </div>
+            </div>
+        <br>
+            
+            <div class="form-group row" id="div-company" >
+                <label class="col-sm-2 col-form-label text-white" for="company">Company</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="company" name="company" placeholder="company">
+                </div>
+            </div>
+        <br>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+<script src="/script/script.js"></script>
+<%- include('./partials/footer') %>
