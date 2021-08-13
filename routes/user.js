@@ -6,8 +6,12 @@ const User = require('../models/user');
 const Job = require('../models/job');
 const { isLoggedIn } = require("../utils/middleware");
 
-router.get('/register', (req, res) => {
-    res.render('register');
+router.get('/registerDev', (req, res) => {
+    res.render('registerDev');
+});
+
+router.get('/registerRec', (req, res) => {
+    res.render('registerRec');
 });
 
 router.post('/register', catchAsync(async (req, res, next) => {
@@ -16,9 +20,10 @@ router.post('/register', catchAsync(async (req, res, next) => {
         const user = new User({username, email, mobile, location, gender, age, language, platform, company, type});
         const registeredUser = await User.register(user, password);
         await registeredUser.save();
+        req.flash("success", `Successfully Registered as ${user.type}!!`);
         res.redirect('/login');
     } catch (err) {
-        res.redirect('/register');
+        res.redirect('/');
     }
 }));
 
